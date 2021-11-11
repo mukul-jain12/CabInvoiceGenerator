@@ -4,6 +4,8 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class InvoiceServiceTest {
+	
+	//toal fare test
 	@Test
 	public void givenDistanceandTime_Totalfare() {
 		InvoiceGenerator invoicegenerator = new InvoiceGenerator();
@@ -13,6 +15,7 @@ public class InvoiceServiceTest {
 		Assert.assertEquals(15, fare, 0.0);
 	}
 
+	//minimum fare test
 	@Test
 	public void givenDistanceandTime_MinimumFare() {
 		InvoiceGenerator invoicegenerator = new InvoiceGenerator();
@@ -22,6 +25,7 @@ public class InvoiceServiceTest {
 		Assert.assertEquals(5, fare, 0.0);
 	}
 
+	//multiple fare test
 	@Test
 	public void givenMultipleRides_TotalFare() {
 		Ride[] rides = {new Ride(2.0, 5),
@@ -32,6 +36,7 @@ public class InvoiceServiceTest {
 		Assert.assertEquals(30, totalFare, 0);
 	}
 
+	//total fare for premium rides
 	@Test
 	public void givenDistanceAndTime_PremiumTotalFare() {
 		InvoiceGenerator invoiceService = new InvoiceGenerator();
@@ -42,6 +47,7 @@ public class InvoiceServiceTest {
 		Assert.assertEquals(99, fare, 0.0);
 	}
 
+	//minimum fare for premium rides
 	@Test
 	public void givenLessDistanceAndTimePremiumMinFare() {
 		InvoiceGenerator invoiceService = new InvoiceGenerator();
@@ -52,8 +58,9 @@ public class InvoiceServiceTest {
 		Assert.assertEquals(20.5, fare, 0.0);
 	}
 
+	//total fare of multiple rides for premium rides
 	@Test
-	public void givenMultipleRidesWhenGivenPremiumShouldReturnTotalFare() {
+	public void givenMultipleRides_PremiumTotalFare() {
 		InvoiceGenerator invoiceService = new InvoiceGenerator();
 		Ride[] rides = {new Ride(2.0, 5),
 				new Ride(0.1, 1)};
